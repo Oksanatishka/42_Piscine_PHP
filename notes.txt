@@ -1,10 +1,40 @@
+PHP     http://php.net/
+HTML    https://www.w3schools.com/
+-----------------------------------------------------------------------------
 Day 00
-Introduction to web
-HTML & CSS
 
+Introduction to web
+  www --> connects to Google servers
+  adress IP: 10.13.2.21 (4 bytes separated by dot)
+  Mac address accesses IP address in web.
+  Router, gateway
+  DNS
+  HTTP
+  
+HTML & CSS
+  - Create a html file and access it in the browser file://Users/....file.html
+  <HTML> //start tag
+  <HEAD>
+  </HEAD>
+    <TITLE>title of the page</TITLE>
+    <STYLE>
+      H1 {color: red;}
+      #myimage {border: 5px solid red;}
+      .myclass {color: green;}
+    </STYLE>
+  <BODY>
+    <H1>Word1</H1> <BR />
+    Word2 <BR />
+    <IMG id="myimage" SRC="logo-42.JPG">
+    <BR />
+    <A class="myclass" HREF="http://www.google.com">link</A>
+  </BODY>
+  </HTML> //end tag
+  
+-----------------------------------------------------------------------------
 Day 01
 INTRODUCTION TO PHP
-
+-----------------------------------------------------------------------------
 Day 02
 REGEXPR
 VARIABLES... VARIABLES
@@ -12,17 +42,17 @@ FILES
 EVAL
 ===
 CURL
-
+-----------------------------------------------------------------------------
 Day 03
 PAMP
-
+-----------------------------------------------------------------------------
 Day 04
 USER SESSION
-
+-----------------------------------------------------------------------------
 Day 05
 INTRODUCTION TO SQL
 SQL & SECURITY
-
+-----------------------------------------------------------------------------
 Day 06
 INTRODUCTION TO OBJECT ORIENTED PROGRAMMING WITH PHP:
 INTRODUCTION
@@ -42,7 +72,7 @@ __CALL & __CALLSTATIC
 CONCLUSION
 COMPARISONS PHP
 ACCESSORS PHP
-
+-----------------------------------------------------------------------------
 Day 07
 MOAR OBJECT ORIENTED PROGRAMMING:
 INTRODUCTION
@@ -55,7 +85,7 @@ ABSTRACT METHODS
 INTERFACES
 CONCLUSION
 INHERITANCE PHP
-
+-----------------------------------------------------------------------------
 Day 08
 EVEN MOAR OBJECT ORIENTED PROGRAMMING:
 INTRODUCTION
@@ -66,11 +96,11 @@ FINALIZE
 EXCEPTIONS
 REFLECTION API
 CONCLUSION
-
+-----------------------------------------------------------------------------
 Day 09
 JAVASCRIPT:
 INTRODUCTION
 DOM
 AJAX & JQUERY
-
+-----------------------------------------------------------------------------
 
