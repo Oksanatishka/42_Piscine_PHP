@@ -96,8 +96,9 @@ INTRODUCTION TO PHP
   ?>
   Hello // code outside php tags will not be considered.
   
-  2. Execute php code: ./prog.php
-  3. jobs???
+  2. chmod 755 prog.php
+  3. Execute php code: ./prog.php
+  4. jobs???
   
   
   
