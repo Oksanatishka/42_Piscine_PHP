@@ -1,0 +1,151 @@
+body {
+    background-image: url('https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/02/08/13/DmitriMendeleev.jpg?w968h681');
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    min-width: 460px;
+}
+h1 {
+    text-align: center;
+}
+.periodic {
+    position: relative;
+    height: 700px;
+    /* -webkit-user-modify: read-write; */
+}
+
+.periodic-row {
+    clear: both;
+    height: 10%;
+}
+
+.cell {
+    float: left;
+    position: relative;
+    width: 5.55%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 1px;
+    right: 1px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    cursor: default;
+    pointer-events: none;
+    background-color: rgba(246, 249, 249, 0.6);
+}
+
+.cell:hover .element {
+    background-color: rgba(0, 128, 128, 0.9);
+}
+
+.cell:hover .element .symbol,
+.cell:hover .element .at_num,
+.cell:hover .element .at_details {
+    color: white;
+}
+
+.at_num,
+.at_details {
+    position: absolute;
+    font-size: 9px;
+    color: black;
+}
+
+.at_num {
+    bottom: 5px;
+    left: 5px;
+}
+
+.symbol {
+    position: absolute;
+    top: 25%;
+    left: 0px;
+    right: 0px;
+    font-size: 30px;
+    font-weight: bold;
+    color: grey;
+}
+
+.at_details {
+    top: 5px;
+    right: 5px;
+}
+
+.bgColor-1 {
+    background-color: #22ff22;
+}
+.bgColor-2 {
+    background-color: #ffcc33;
+}
+.bgColor-3 {
+    background-color: #ffff44;
+}
+.bgColor-4 {
+    background-color: #ddbbbb;
+}
+.bgColor-5 {
+    background-color: #77dd88;
+}
+.bgColor-6 {
+    background-color: #99ddcc;
+}
+.bgColor-7 {
+    background-color: #77ccff;
+}
+.bgColor-8 {
+    background-color: #777;
+}
+.bgColor-9 {
+    background-color: #ffbb99;
+}
+.bgColor-10 {
+    background-color: #eebbdd;
+}
+.clearfix {
+    clear: both;
+}
+
+@media screen and (max-width: 1023px) {
+    .symbol {
+        font-size: 20px;
+    }
+    .periodic-row {
+        height: 7%;
+    }
+    .at_num {
+        bottom: 2px;
+        left: 2px;
+    }
+    .at_details {
+        top: 2px;
+        right: 2px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .symbol {
+        font-size: 14px;
+    }
+    .at_num,
+    .at_details {
+        font-size: 8px;
+    }
+    .periodic-row {
+        height: 6%;
+    }
+    .at_num {
+        bottom: 1px;
+        left: 1px;
+    }
+    .at_details {
+        top: 1px;
+        right: 1px;
+    }
+}
