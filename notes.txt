@@ -34,6 +34,73 @@ HTML & CSS
 -----------------------------------------------------------------------------
 Day 01
 INTRODUCTION TO PHP
+  1. Create prog.php.
+  
+  #!/usr/bin/php  //php binary run and execute the code.
+  <?PHP
+  // code php
+  
+  function my_add($p1, $p2) {
+    return $p1 + $p2;
+  }
+  
+  echo "Hello\n";
+  // or
+  print("Hello\n");
+  
+  $my_var = 42; // number
+  $my_str = "World" // string
+  $my_tab = array("zero", "un", "deux");  // array
+  
+  $my_tab = explode(":", "zero:un:deux"); // check manual for explode
+  
+  $my_hash = array("key1" => "val1", "key2" => "val2");
+  
+  echo $my_var;
+  echo "\n";
+  // or
+  echo $my_var."\n".$my_str;  // dot will concat
+  // or
+  echo $my_var\n$my_str;  // dot will concat
+  
+  $result = "21" + "21";  //calculate
+  echo "$result\n";
+  
+  $my_tab[0] = "00";
+  // to access cells from the array:
+  echo $my_tab[0];
+  echo "\n";
+  echo $my_hash["key1"]."\n";
+  
+  echo "$my_tab\n\n";
+  print_r($my_tab);
+  
+  echo my_add("36", "6");
+  
+  // if you have more than 1 instruction use curly brackets {} in if statement below
+  if ($my_tab[1] == "un")
+  echo "OK";
+  else 
+  echo "KO";
+  
+  echo "$argc\n";
+  print_r($argv);
+  // ./prog.php toto tutu titi
+  
+  // foreach($my_tab as $elem)
+  foreach($argv as $elem)
+  {
+    echo "$elem\n"
+  }
+  
+  ?>
+  Hello // code outside php tags will not be considered.
+  
+  2. Execute php code: ./prog.php
+  3. jobs???
+  
+  
+  
 -----------------------------------------------------------------------------
 Day 02
 REGEXPR
