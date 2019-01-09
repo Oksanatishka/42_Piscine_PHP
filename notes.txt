@@ -92,7 +92,7 @@ INTRODUCTION TO PHP
   // foreach($my_tab as $elem)
   foreach($argv as $elem)
   {
-    echo "$elem\n"
+    echo "$elem\n";
   }
   
   ?>
