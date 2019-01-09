@@ -75,6 +75,7 @@ INTRODUCTION TO PHP
   
   echo "$my_tab\n\n";
   print_r($my_tab);
+  // The print_r() function is a built-in function in PHP and is used to print or display information stored in a variable.
   
   echo my_add("36", "6");
   
