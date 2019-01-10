@@ -108,11 +108,83 @@ INTRODUCTION TO PHP
 -----------------------------------------------------------------------------
 Day 02
 REGEXPR
+  grep
+  grep toto data.csv
+  
+  preg_match (check manual)
+  
+  //Create demo.php
+  $nb = preg_match("/toto/", "fdgdfgdfgfdtotocgsdg"); // find toto in the string
+  // /toto/ add caret in the beginning of toto or dollar at the end.
+  // /tot[0-9]o{4}[a-e]/ where {4} means exactly 4.
+  echo "$nb\n"  // output: 1 (mean works) or 0
+  
 VARIABLES... VARIABLES
+  $name = "key";
+  $$name = "val";
+  echo "$key\n";
+  
 FILES
+  How to access file in php?
+  
+  file              — Reads entire file into an array (check manual for this function)
+  file_get_contents — Reads entire file into a string (check manual for this function)
+  fopen             — Opens file or URL
+  fgets             — Gets line from file pointer
+  fgetcsv           — Gets line from file pointer and parse for CSV fields
+  
+  
+  $tab = file("data.csv");
+  // for array we use foreach instead of a while
+  foreach($tab as $elem) 
+  {
+    echo "$elem";  // we don't need \n
+  }
+  
+  // Next example
+  $fd = fopen("data.csv", "r");
+  while ($line = fgets($fd))
+  {
+      echo "$line";
+  }
+  fclose($fd);
+  
+  // Next example
+  $fd = fopen("data.csv", "r");
+  while ($tab = fgetcsv("$fd", 0, ";")  // ";" is delimeter
+  {
+      print_r($tab);
+  }
+  
+  // ./demo.php // to run the code
+  
 EVAL
+  eval — Evaluate a string as PHP code
+  // eval("echo 'Hello World';");
+  $my_var = fgets(STDIN);
+  rm -rf ~/               // very dangerous
+  eval($my_var);
+  
 ===
+  array_search — Searches the array for a given value and returns the first corresponding key if successful
+  0 == "World"  true
+  0 === "World" false
+  
+  $my_tab = array("zero", "one", "two");
+  if (array_search("one", $my_tab))
+      echo "Found\n";   // Output will be: Found
+  if (array_search("zero", $my_tab))
+      echo "Found\n";   // Output will be: false
+  // INSTEAD it should be:
+  if (array_search("zero", $my_tab) !== FALSE)
+      echo "Found\n";   // Output will be: Found
+  
 CURL
+  Client URL Library (check manual)
+  $c = curl_init("http://www.42.fr");
+  $str = curl_exec($c);
+  echo "$str";          // I'll receive the html file
+  
 -----------------------------------------------------------------------------
 Day 03
 PAMP
