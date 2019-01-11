@@ -6,6 +6,13 @@
 //      who am i
 // By default, who gathers information from the file /var/run/utmpx
 
+// utmpx-1.00
+// ��\oksana/consolep��\�aoksanas000ttys000��\��
+
+// The replacement character � is used to indicate problems when a system is unable to render a stream of data to a correct symbol. 
+// man hexdump
+// hexdump -C /var/run/utmpx
+	
 $fd = fopen("/var/run/utmpx", 'r');
     date_default_timezone_set("America/Los_Angeles");
     // Hexadecimal: 0x274 converts to Decimal: 628
