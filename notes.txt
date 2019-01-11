@@ -299,7 +299,12 @@ AJAX & JQUERY
 -----------------------------------------------------------------------------
 RUSH 00
 
+-----------------------------------------------------------------------------
 My Notes:
+XAMPP (Apache, MariaDB, PHP and Perl)
 How to run PHP files on localhost? http://electrofriends.com/interview-questions/software-languages/php-faq/run-php-localhost/
 Where to find htdocs in XAMPP Mac: https://stackoverflow.com/questions/45518021/where-to-find-htdocs-in-xampp-mac
+
+MAMP (Macintosh, Apache, MySQL, PHP) package
+MAMP is intended as a PHP development environment for the Mac.
 
