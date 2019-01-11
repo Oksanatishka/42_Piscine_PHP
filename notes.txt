@@ -189,9 +189,59 @@ CURL
 -----------------------------------------------------------------------------
 Day 03
 PAMP
+  We will learn how to pass from a command-line PHP execution to a PHP web server-side executed.
+  For that we will need to install a web server.
+  So, in the MSC(Managed Software Center) you will search "PAMP". You will have to install it.
+  On my side the software is already installed, it may take some time. You click on install.
+  Once "PAMP" installed, you will launch it.
+  There are two buttons "Start" and "Stop", you will click on "Start" to launch to server.
+  The web server is running now. There is a new folder 'http' created located in your home.
+  right here. 
+  $ ls  // goinfree other_folders http
+  In this folder('http'), there is another folder called 'MyWebSite'.
+  In this folder('MyWebSite') I will create a file 'index.html' to test if my web server is running.
+  $ vim index.html
+  <?php
+  echo 'coucou';
+  ?>
+
+  Here we go, now I will access to the website by clicking on the website.
+  My index.html is loaded and I have access to the website through the port 8080.
+  mac-studio.42.fr:8080
+  The PAMP application will allow you to create other servers.
+  PAMP --> Settings -->Server Name: Piscines, DocumentRoot: ~/http/Piscines, Directory: ~/http/Piscines, port: 8081 -->
+  --> Add --> Restart the service
+  I will create the folder Piscine corresponding to my new server
+  $ mkdir Piscines
+  $ cd Piscines
+  $ vim index.php
+  
+  PAMP will install an Apache web server and mysql (but you will learn more about mysql on Day 05).
+  You can see few modules, more will be added in the future.
+  PAMP --> Tools tab
+  For example, I will install PHPMyAdmin which is a database module management.
+  As you can see, there is a folder "PHPMyAdmin" created and we can access it.
+  $ cd MyWebSite
+  $ ls          // index.php  phpMyAdmin
+  mac-studio.42.fr:8080/phpMyAdmin --> 
+  --> You can login with your mySQL credentials but you won't need it for today.
+  
+  Day 03 will be about server-side PHP execution.
+  $ cd Piscines
+  $ ls  // index.php
+  $ mkdir d03 // and put your exercises in sub-folders "ex00" etc
+  
+  Read more about Apache web server configuration.
+  
 -----------------------------------------------------------------------------
 Day 04
 USER SESSION
+  (and website sequrity).
+  You need to protect user passwords. There are a lot of ways to encrypt a password (md5).
+  hash function http://php.net/manual/en/function.hash.php
+  
+  Session Handling (check manual)  
+  
 -----------------------------------------------------------------------------
 Day 05
 INTRODUCTION TO SQL
@@ -247,4 +297,9 @@ INTRODUCTION
 DOM
 AJAX & JQUERY
 -----------------------------------------------------------------------------
+RUSH 00
+
+My Notes:
+How to run PHP files on localhost? http://electrofriends.com/interview-questions/software-languages/php-faq/run-php-localhost/
+Where to find htdocs in XAMPP Mac: https://stackoverflow.com/questions/45518021/where-to-find-htdocs-in-xampp-mac
 
