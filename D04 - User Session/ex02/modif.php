@@ -1,5 +1,5 @@
 <?php
-    if ($_POST['login'] && $_POST['oldpw'] && $_POST['newpw'] && $_POST['submit'] && $_POST['submit'] === "OK") {
+    if ($_POST['login'] && $_POST['oldpw'] && $_POST['newpw'] && $_POST['submit'] === "OK") {
         $account = unserialize(file_get_contents('../private/passwd'));
         if ($account) {
             $exist = 0;
