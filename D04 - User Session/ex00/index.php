@@ -7,6 +7,7 @@
         $_SESSION['passwd'] = $_GET['passwd'];
     }
 ?>
+
 <html><body>
     <form action="index.php" method="GET">
         Username: <input type="text" name="login" value="<?php echo $_SESSION['login']; ?>" />
