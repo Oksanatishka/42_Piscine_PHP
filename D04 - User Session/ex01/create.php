@@ -1,5 +1,14 @@
 <?php
-    if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] && $_POST['submit'] === "OK") {
+    // file_get_contents — Reads entire file into a string
+    // file_put_contents — Write data to a file
+    // serialize    — Generates a storable representation of a value
+    // unserialize  — Creates a PHP value from a stored representation
+    // file_exists — Checks whether a file or directory exists
+    // mkdir — Makes directory
+    // hash — Generate a hash value (message digest)
+    // $_POST — HTTP POST variables
+
+    if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] === "OK") {
         if (!file_exists('../private')) {
             mkdir("../private");
         }
