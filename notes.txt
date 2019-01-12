@@ -301,10 +301,23 @@ RUSH 00
 
 -----------------------------------------------------------------------------
 My Notes:
+
+vhost, a virtual host is a provider of Web services that include server functions and Internet connection services. 
+A virtual host is often used by companies or individuals that do not want to purchase and maintain their own 
+Web servers and Internet connections.
+
 XAMPP (Apache, MariaDB, PHP and Perl)
 How to run PHP files on localhost? http://electrofriends.com/interview-questions/software-languages/php-faq/run-php-localhost/
 Where to find htdocs in XAMPP Mac: https://stackoverflow.com/questions/45518021/where-to-find-htdocs-in-xampp-mac
 
 MAMP (Macintosh, Apache, MySQL, PHP) package
 MAMP is intended as a PHP development environment for the Mac.
+$ cd /Applications/MAMP/htdocs
+$ vim test.php
+
+/Applications/MAMP/htdocs
+/Applications/MAMP/conf/ssl
+
+
+
 
