@@ -288,6 +288,23 @@ INTRODUCTION TO SQL
     SQL is used in C and all languages.
     
 SQL & SECURITY
+  $ emacs secu.php
+  
+  <?php
+  mysql_connect("localhost://Users/bocal/Desktop/mathieu/mysql/tmp/mysql.sock", "root", $_ENV['PASS']) or die('Err\or : ' . mysql_error());
+  mysql_select_db("sql42");
+  // $res = mysql_query("SELECT 1 FROM User WHERE name = '" . $argv[1] . "' and pass = '" . $argv[2] . "';");
+  $res = mysql_query("SELECT 1 FROM User WHERE name = '" . mysql_real_escape_string($argv[1]) . "' and pass = '" . mysql_real_escape_string($argv[2]) . "';");
+  $res = mysql_fetch_array($res);
+  if ($res === false)
+    print "Wrong password\n";
+  else
+    print "Good password\n";
+  ?>
+  
+  $ php secu.php root superpass   // Good password
+  $ php secu.php root superpasszae   // Wrong password
+  $ php secu.php root "azeazeaze' OR 1=1#"   // Good password --> but it should be wrong!!! use mysql_real_escape_string!!!
   
 -----------------------------------------------------------------------------
 Day 06
