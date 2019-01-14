@@ -378,6 +378,6 @@ $ vim test.php
 /Applications/MAMP/htdocs
 /Applications/MAMP/conf/ssl
 
-
+To access mySQL: start server on MAMP and then add phpmyAdmin to a link --> http://localhost:8888/phpmyadmin/ --> choose SQL tab.
 
 
