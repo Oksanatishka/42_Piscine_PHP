@@ -245,7 +245,50 @@ USER SESSION
 -----------------------------------------------------------------------------
 Day 05
 INTRODUCTION TO SQL
+  SQL - language that allows you to manipulate database.
+    - MySQL (most used)
+    - PostgreSQL
+    - SQLite
+    
+    $ mysql -uroot -p // username, pw (to connect to the server)
+    mysql> show databases;
+    mysql> use sql42;
+    mysql> show tables;
+    // to interact use SELECT, INSERT, UPDATE, DELETE keywords.
+    mysql> select * from film; // film is a table
+    mysql> select * from genre;
+    mysql> select name from genre;
+    mysql> select name, name from genre;
+    mysql> select * from film;  // back to film table
+    mysql> describe film; 
+    mysql> select id_film, title from film limit 10; // display first 10 (my request)
+    mysql> select id_film, title FROM film ORDER BY title LIMIT 10;  // to sort
+    mysql> select id_film, title FROM film ORDER BY title DESC LIMIT 10;  // desc means last 10
+    mysql> desc film;
+    mysql> SELECT id_film, title, annee_prod FROM film WHERE annee_prod != 0 ORDER BY title DESC LIMIT 10;
+    mysql> SELECT count(*) FROM film WHERE annee_prod > 2005 AND annee_prod < 2007 ORDER BY title DESC LIMIT 10;  // count
+    mysql> SELECT max(annee_prod) FROM film WHERE annee_prod > 2005 AND annee_prod < 2007 ORDER BY title DESC LIMIT 10; // max / min
+    // uppercase f-n (check in manual)
+    // join
+    mysql> SELECT * FROM film INNER JOIN genre ON film.id_genre = genre.id_genre; // now two tables are linked
+    mysql> SELECT title FROM film INNER JOIN genre ON film.id_genre = genre.id_genre;
+    mysql> SELECT count(*), id_genre FROM film GROUP BY id_genre;   // group by 
+    mysql> DELETE FROM genre WHERE id_genre = 29;
+    mysql> INSERT INTO genre(id_genre, name) VALUES(29, "Test");
+    mysql> UPDATE genre SET name = "test" WHERE id_genre = 29;
+    
+    // how to create a table
+    mysql> desc genre;  // let's look at table
+    mysql> CREATE TABLE Test (name VARCHAR(255), id INT PRIMARY KEY AUTO_INCREMENT);  // in parenthesis we put all fields
+    mysql> SELECT * FROM Test;
+    mysql> INSERT INTO Test (name) VALUES ("toto");
+    mysql> INSERT INTO Test (name) VALUES ("toto1");
+    mysql> INSERT INTO Test (name) VALUES ("toto2");
+    
+    SQL is used in C and all languages.
+    
 SQL & SECURITY
+  
 -----------------------------------------------------------------------------
 Day 06
 INTRODUCTION TO OBJECT ORIENTED PROGRAMMING WITH PHP:
