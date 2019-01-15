@@ -1,1 +1,2 @@
-SELECT round(avg(`nb_seats`), 0) AS `average` FROM db_obibik.cinema;
+SELECT round(avg(`nb_seats`), 0) AS `average`
+FROM db_obibik.cinema;
