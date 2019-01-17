@@ -310,10 +310,194 @@ SQL & SECURITY
 Day 06
 INTRODUCTION TO OBJECT ORIENTED PROGRAMMING WITH PHP:
 INTRODUCTION
+  The idea will be to deliver this day's topic in small chapters. 
+  Each chapter will look at an 'atomic concept' of what we need to cover today.
+  
 CLASSES
+  OOP is the result of programmers coming together and thinking about how to create a better code.
+  They all agreed that grouping your data and your code was an effective practice.
+  This means that we will try to group everything that has a semantic relationship - those can be either 
+  variables, data structures, or functions.
+  So, the result of their thinking was the concept of 'object'. Namely a programming entity that would 
+  enable us to group data and code together, the objective being to have semantic related 'things' function together.
+  Evidently, this concept is quite intuitive when you have some experience in programming.
+  modular programming 
+  
+  PHP is adapted to OOP.
+  A key concept of OOP is the 'class'. The class is this 'bag' where we will insert the data and code we wish to group together.
+  Syntax structure (See example below with all syntax basics).
+  Create a file called Example.class.php.
+  $ vim Example.class.php
+  
+  <?php
+    // here is school header
+    Class Example {             // class is key word which enable to declare a new php class followed by the name of the class.
+      // this function will be called at the beginning when the class will be instantiate (when it'll be created). 
+      // This will be called construction.
+      function __construct() {  // two underscores before 'construct'
+        print ('Constructor called' . PHP_EOL);
+        return;
+      }
+      // this function will be called when the class, the instance is destroyed, we don't need it anymore and 
+      // we free up some memory space. This will be called 'destruction'.
+      function __destruct() {  // two underscores before 'construct'
+        print ('Destructor called' . PHP_EOL);
+        return;
+      }
+    }
+    // when the class Example has been instantiated, then automatically constructor will be called and its code will be executed.
+    // the same way when the instance will be destroyed, the call to the destructor will be automatic and the f-n inside of it will be 
+    // executed.
+    $instance = new Example();  // instantiate a class. The variable instance is equal to a new instance of the class
+  ?>
+  
+  // A little note on vocabulary here, I mentioned before that we could group data and code together in a class.
+  // So, with regard to the data, which will be the variables in our class, we will refer to them as attributes to make 
+  // the difference with a normal variable in a fucntion. And with regards to the functions we will find in a class, 
+  // we will refer to them as 'methods'. Later, in the course when you will be coding in C++, we will see that a method 
+  // refers to something very specific. But for simplicity here, we will speak only of methods.  
+  
+  // Let's execute code now.
+  $ php -f Example.class.php
+  
+  
 ATTRIBUTES & METHODS
+        Open the same example.
+
+        <?php
+          Class Example { 
+            // 'foo' is an attribute (it's a class variable that we will use for our instances). 'public' is a key word.
+            public $foo = 0;    
+
+            function __construct() {  
+              print ('Constructor called' . PHP_EOL);
+              return;
+            }
+            function __destruct() { 
+              print ('Destructor called' . PHP_EOL);
+              return;
+            }
+
+            // doesn't take any parameters, will limit itself to display content bar call.
+            function bar() {
+              print('Method bar called' . PHP_EOL);
+              return;
+            }
+          }
+
+          $instance = new Example(); 
+
+          // display a value of attribute foo, directly after the instantiation of the class. We'll do variable instance arrow foo 
+          // (the name of the attribute).
+          print('$instance->foo: ' . $instance->foo . PHP_EOL);  
+
+          $instance->foo = 42;
+
+          // I will display again the value of the attribute foo to ensure it has been modified.
+          print('$instance->foo: ' . $instance->foo . PHP_EOL);
+
+          // and finally I call the method bar from my instance example to ensure it functions properly.
+          $instance->bar();
+
+        ?>
+  
+  
 $THIS
+      For now, we have seen how to use them (class's attributes and methods) outside of this class.
+      $this variable will enable us to designate the current class instance in the methods' code.
+
+      <?php
+        Class Example { 
+          public $foo = 0;    
+
+          function __construct() {  
+            print ('Constructor called' . PHP_EOL);
+            // to display the value of the attribute foo directly in the constructor's code. 
+            // To do that I use variable $this, the arrow operator and the attribute foo.
+            print('$this->foo: ' . $this->foo . PHP_EOL);  
+            $this->foo = 42;
+            print('$this->foo: ' . $this->foo . PHP_EOL);
+            $this->bar();
+            return;
+          }
+          function __destruct() { 
+            print ('Destructor called' . PHP_EOL);
+            return;
+          }
+
+          function bar() {
+            print('Method bar called' . PHP_EOL);
+            return;
+          }
+        }
+
+        $instance = new Example(); 
+      ?>
+  
 SCOPES
+      One of the most important concepts in OOP is the notion of visibility - we will refer to the term of encapsulation.
+      This means distingushing between the code that must remain inside class and be used only by this class' developer vs 
+      the code which can used from outside of this class. We will create a gap between on the one hand the person who will 
+      use the class, the client, and on the other the person, who will create the class, the class' developer. Obviously, 
+      the client is also a developer.
+      - Person who writes the class.
+      - Person who uses the class.
+            - doesn't need to know the implementation details of our class as those include complex sum and variables which must 
+            stay inside the class and don't need to be neither nor manipulated outside the class. It's this concept of encapsulation.
+      
+      To achieve this, all OOP languages offer a series of key words, which will allow us to control the visibility of either an 
+      attribute or a method from the outside of the class. The key word 'public' is one of those encapsulation key words.
+      Another key word - private.
+      
+      All attribute that is declared 'public' will be freely available and readable from outside the class.
+      Same thing for the methods. If we have a public or nothing before the method, then it's public.
+      - no underscore - we are reffering to public.
+      - underscore    - we are reffering to private.
+      - double underscore - we are reffering to a special methods.
+      
+      <?php
+        Class Example { 
+          public $publicFoo = 0;    
+          private $_privateFoo = 'hello';
+          
+          function __construct() {  
+            print ('Constructor called' . PHP_EOL);
+            
+            print('$this->publicFoo: ' . $this->publicFoo . PHP_EOL);  
+            $this->publicFoo = 42;
+            print('$this->publicFoo: ' . $this->publicFoo . PHP_EOL);
+            
+            // comment this part with private otherwise it'll be 'Fatal error'.
+            print('$this->_privateFoo: ' . $this->_privateFoo . PHP_EOL);  
+            $this->_privateFoo = 42;
+            print('$this->_privateFoo: ' . $this->_privateFoo . PHP_EOL);
+
+            $this->publicBar();
+            $this->_privateBar();
+            
+            return;
+          }
+          
+          function __destruct() { 
+            print ('Destructor called' . PHP_EOL);
+            return;
+          }
+
+          function publicBar() {
+            print('Method publicBar called' . PHP_EOL);
+            return;
+          }
+          
+          private function _privateBar() {
+            print('Method _privateBar called' . PHP_EOL);
+            return;
+          }
+        }
+
+        $instance = new Example(); 
+      ?>
+      
+      
 WHO SAID NO OVERLOADING?
 __GET & __SET
 __TOSTRING
