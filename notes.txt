@@ -314,6 +314,7 @@ INTRODUCTION
   Each chapter will look at an 'atomic concept' of what we need to cover today.
   
 CLASSES
+  OOP = modular programming = semantically grouping data and code together.
   OOP is the result of programmers coming together and thinking about how to create a better code.
   They all agreed that grouping your data and your code was an effective practice.
   This means that we will try to group everything that has a semantic relationship - those can be either 
@@ -499,22 +500,54 @@ SCOPES
       
       
 WHO SAID NO OVERLOADING?
+      As you must know, it's not possible to overload a method.
+      $kwargs
+      ...
+      
 __GET & __SET
+  this is two special methods, which are two very useful tools in php to be able to control access to attribute that 
+  either don't exist or are private.
+  
+  
 __TOSTRING
+    it's a special method which enables us to serialise or to transform an instance in a string (useful when debugging / logging).
+    
 __INVOKE
+    it's a special method which enables an instance to act like a function. 
+
 CLONE & __CLONE
+
 CLASS CONSTANTS
+    In C, enum - a special type which would enable us to define all the possible values.
+    key word 'const', title in uppercase.
+    operator :: (double colon) is the scope operator
+    self:: where key word self is referred to the class
+
 STATIC METHODS
+
 STATIC ATTRIBUTES
+
 __CALL & __CALLSTATIC
+
 CONCLUSION
+    Inheritance is tomorrow. 
+    May 3D be with you.
+    
 COMPARISONS PHP
+    == vs ===
+    
 ACCESSORS PHP
+
 -----------------------------------------------------------------------------
 Day 07
 MOAR OBJECT ORIENTED PROGRAMMING:
 INTRODUCTION
 METHOD OVERRIDE
+    Inheritance allows you to recover all the attributes and methods defined in a parent class in a child class.
+    Class includes a constructor, a destructor and a method.
+    The override the redefinition of the method means that when a method exists in a parent class and that we have re-written it
+    that we have redifined it in a child class.
+    
 PROTECTED
 SELF
 STATIC
@@ -562,6 +595,11 @@ $ vim test.php
 /Applications/MAMP/htdocs
 /Applications/MAMP/conf/ssl
 
+To start dev server in terminal: php -S localhost:8100 
 To access mySQL: start server on MAMP and then add phpmyAdmin to a link --> http://localhost:8888/phpmyadmin/ --> choose SQL tab.
 
-
+OOPs Concepts in PHP
+PHP is an object oriented scripting language;
+1. Encapsulation - via the use of “get” and “set” methods etc.
+2. Inheritance - via the use of extends keyword
+3. Polymorphism - via the use of implements keyword
