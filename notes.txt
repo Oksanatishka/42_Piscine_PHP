@@ -571,8 +571,73 @@ CONCLUSION
 Day 09
 JAVASCRIPT:
 INTRODUCTION
+    JS is a language that executes on the client side contrary to PHP when you have your navigator and that you are asking 
+    a page the navigator send a request to the server, the server generates thanks to PHP that you know the page in question
+    that will contain HTML, CSS and some JS will send it back to the navigator and this is where the navigator will execute the JS.
+    
+    alert('tata');
+    console.log('hello world');
+    
+    <script>
+        var test;
+        test = 42;
+        console.debug(42);
+        function my_func() {
+          var toto;
+          toto = "Hello";
+          console.debug(toto);
+        }
+        my_func();
+    </script>
+    
+    <script>
+        var tab = new Array('tomate', 'salade', 'tott'); // declared array
+        for (t in tab) { // for key in array
+            console.log(t);       // to display index
+            console.log(tab[t]);  // to display values
+        }
+    </script>
+    
 DOM
+    Mnipulationg the DOM, functions (methods):
+    var my_elem = document.getElementById('lga');
+    my_elem.getAttribute('id');
+    var new_elem = document.createElement('span');
+    new_elem.setAttributes('style', 'background: red;');
+    // innerHTML();
+    var_text = document.createTextNode('hello world);
+    new_elem.appendChild(var_text);
+    my_elem.appendChild(new_elem);
+    my_elem.removeChild(new_elem);
+    
 AJAX & JQUERY
+    - synchronic way
+    - asynchronic way
+    We won't see AJAX in pure JS. Reasons:
+    - there are many lines of code to write it.
+    - the portability between navigators 
+    Use jQuery. It's a library that overlies on JS.
+    cdn
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <span id="my_span">Try me!</span>
+    <script>
+        $(document).ready(function() {
+            $('#my_span').function() {
+                $.get('test.php?test=ok', function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                })
+            }
+        })
+    </script>
+    
+    test.php
+    <?php
+      if(isset($_GET['test']) && ($_GET['test']) == 'ok')
+          echo 'OK'
+      else
+          echo 'KO'
+    ?>
 -----------------------------------------------------------------------------
 RUSH 00
 
@@ -598,8 +663,124 @@ $ vim test.php
 To start dev server in terminal: php -S localhost:8100 
 To access mySQL: start server on MAMP and then add phpmyAdmin to a link --> http://localhost:8888/phpmyadmin/ --> choose SQL tab.
 
-OOPs Concepts in PHP
+================================ OOPs Concepts in PHP ================================
+
 PHP is an object oriented scripting language;
 1. Encapsulation - via the use of “get” and “set” methods etc.
 2. Inheritance - via the use of extends keyword
 3. Polymorphism - via the use of implements keyword
+
+
+A class may contain its own 
+  - constants, 
+  - variables (called "properties"), and 
+  - functions (called "methods").
+
+http://www.php.su/learnphp/phpoo/?classes
+Конструктор представляет собой метод, который задает значения некоторых свойств (а также может вызывать другие методы). Конструкторы вызываются автоматически при создании новых объектов. Чтобы это стало возможным, имя метода-конструктора должно совпадать с именем класса, в котором он содержится.
+
+PHP не имеет деструкторов, поскольку ресурсы освобождаюся автоматически при завершении работы скриптов.
+Необходимость в вызове деструкторов возникает лишь при работе с объектами, использующими большой объем ресурсов, поскольку все переменные и объекты автоматически уничтожаются по завершении сценария.
+
+Обращение к элементам классов осуществляется с помощью оператора :: "двойное двоеточие". Используя "двойное двоеточие", можно обращаться к методам классов.
+
+Экземпляр класса (копия) - это объект.
+Объект - это совокупность данных (свойств) и функций (методов) для их обработки. 
+Данные и методы называются членами класса.
+Объектом является все то, что поддерживает инкапсуляцию.
+
+Описание классов в PHP начинаются служебным словом class.
+Для объявления объекта необходимо использовать оператор new.
+Данные описываются с помощью служебного слова var.
+Метод описывается так же, как и обыкновенная функция.
+Получить доступ к членам класса, для этого в PHP предназначен оператор ->.
+Чтобы получить доступ к членам класса внутри класса, необходимо использовать указатель $this, который всегда относится к текущему объекту.
+
+
+Конструктор - это просто функция, вызываемая при создании нового объекта. В PHP 5 это может быть достигнуто двумя различными способами:
+1. создание публичной функции с тем же именем класса (PHP 4 и далее) или 
+2. путем создания функции с именем «__construct ()» (только для PHP 5)
+ 
+Уровни видимости:
+- public
+- private
+- protected
+
+<?php
+  // Создаем новый класс Coor:
+  class Coor {
+      // данные (свойства):
+      var $name;
+
+      // методы:
+       function Getname() {
+          echo $this->name;
+       }
+
+       function Setname($name) {
+          $this->name = $name;
+       }
+  }
+
+  // Создаем объект класса Coor:
+  $object = new Coor;
+  // Теперь для изменения имени используем метод Setname():
+  $object->Setname("Nick");
+  // А для доступа, как и прежде, Getname():
+  $object->Getname();
+  // Сценарий выводит 'Nick'
+?>
+
+
+Наследование классов в PHP
+Ключевое слово extends (см. пример) говорит о том, что дочерний класс Child наследует все методы и свойства класса Parent. Родительский класс обычно называют базовым классом или суперклассом, а дочерний класс Child - производным или подклассом.
+
+<?php
+  class Parent {
+      function parent_funct() { echo "<h1>Это родительская функция</h1>"; }
+      function test () { echo "<h1>Это родительский класс</h1>"; }
+  }
+
+  class Child extends Parent {
+      function child_funct() { echo "<h2>Это дочерняя функция</h2>"; }
+      function test () { echo "<h2>Это дочерний класс</h2>"; }
+  }
+
+  $object = new Parent;
+  $object = new Child;
+
+  $object->parent_funct(); // Выводит 'Это родительская функция'
+  $object->child_funct(); // Выводит 'Это дочерняя функция'
+  $object->test(); // Выводит 'Это дочерний класс'
+?>
+
+Полиморфизм - это свойство базового класса использовать функции производных классов.
+
+<?php
+    class Base {
+         function funct() {
+            echo "<h2>Функция базового класса</h2>";
+         }
+         function base_funct() {
+            $this->funct();
+         }
+    }
+
+    class Derivative extends Base {
+         function funct() {
+            echo "<h3>Функция производного класса</h3>";
+         }
+    }
+
+    $b = new Base();
+    $d = new Derivative();
+
+    $b->base_funct();
+    $d->funct();
+    $d->base_funct();
+    // Скрипт выводит:
+
+    // Функция базового класса
+    // Функция производного класса
+    // Функция производного класса
+?>
