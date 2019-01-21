@@ -4,9 +4,11 @@
 
     class Vertex
     {
+        // x axis coordinate, y axis coordinate, z depth coordinate
         private $_x;
         private $_y;
         private $_z;
+        // coordinate w. (by default is worth 1.0). Search on Google "homogeneous coordinates"
         private $_w = 1;
         private $_color;
         static $verbose = false;
