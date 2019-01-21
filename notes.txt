@@ -663,6 +663,9 @@ $ vim test.php
 To start dev server in terminal: php -S localhost:8100 
 To access mySQL: start server on MAMP and then add phpmyAdmin to a link --> http://localhost:8888/phpmyadmin/ --> choose SQL tab.
 
+Useful online course for Rush00 (Learn E-Commerce Website in PHP & MySQL From Scratch) 
+https://www.udemy.com/ecommerce-website-in-php-mysqli/
+
 ================================ OOPs Concepts in PHP ================================
 
 PHP is an object oriented scripting language;
