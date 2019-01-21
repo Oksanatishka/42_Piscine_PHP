@@ -10,6 +10,8 @@
 
         public function __construct($array)
         {
+            // ’dest’: the vector’s destination vertex, mandatory.
+            // ’orig’: the vector’s origin vertex, optional, by default is worth a new instance of the x=0, y=0, z=0, w=1 vertex.
             if (isset($array['dest']) && $array['dest'] instanceof Vertex) {
                 if (isset($array['orig']) && $array['orig'] instanceof Vertex) {
                     $orig = new Vertex(array('x' => $array['orig']->getX(), 'y' => $array['orig']->getY(), 'z' => $array['orig']->getZ()));
@@ -24,12 +26,14 @@
             if (Self::$verbose)
                 printf("Vector( x:%0.2f, y:%0.2f, z:%0.2f, w:%0.2f ) constructed\n", $this->_x, $this->_y, $this->_z, $this->_w);
         }
-
+        
+        // float magnitude() : returns the vector’s length (or "norm").
         public function magnitude()
         {
             return (float)sqrt(($this->_x * $this->_x) + ($this->_y * $this->_y) + ($this->_z * $this->_z));
         }
-
+        
+        // Vector normalize() : returns a normalized version of the vector.
         public function normalize()
         {
             $longeur = $this->magnitude();
@@ -38,32 +42,38 @@
             }
             return new Vector(array('dest' => new Vertex(array('x' => $this->_x / $longeur, 'y' => $this->_y / $longeur, 'z' => $this->_z / $longeur))));
         }
-
+    
+        // Vector add( Vector $rhs ) : returns the sum vector of both vectors.
         public function add(Vector $rhs)
         {
             return new Vector(array('dest' => new Vertex(array('x' => $this->_x + $rhs->_x, 'y' => $this->_y + $rhs->_y, 'z' => $this->_z + $rhs->_z))));
         }
-
+    
+        // Vector sub( Vector $rhs ) : returns the difference vector of both vectors.
         public function sub(Vector $rhs)
         {
             return new Vector(array('dest' => new Vertex(array('x' => $this->_x - $rhs->_x, 'y' => $this->_y - $rhs->_y, 'z' => $this->_z - $rhs->_z))));
         }
-
+    
+        // Vector opposite() : returns the opposite vector.
         public function opposite()
         {
             return new Vector(array('dest' => new Vertex(array('x' => $this->_x * -1, 'y' => $this->_y * -1, 'z' => $this->_z * -1))));
         }
 
+        // Vector scalarProduct( $k ) : returns the multiplication of the vector with a scalar.
         public function scalarProduct($k)
         {
             return new Vector(array('dest' => new Vertex(array('x' => $this->_x * $k, 'y' => $this->_y * $k, 'z' => $this->_z * $k))));
         }
 
+        // float dotProduct( Vector $rhs ) : returns the scalar multiplication of both vec- tors.
         public function dotProduct(Vector $rhs)
         {
             return (float)(($this->_x * $rhs->_x) + ($this->_y * $rhs->_y) + ($this->_z * $rhs->_z));
         }
 
+        // Vector crossProduct( Vector $rhs ) : returns the cross multiplication of both vectors (right-hand mark!)
         public function crossProduct(Vector $rhs)
         {
             return new Vector(array('dest' => new Vertex(array(
@@ -72,7 +82,8 @@
                 'z' => $this->_x * $rhs->getY() - $this->_y * $rhs->getX()
             ))));
         }
-
+    
+        // float cos( Vector $rhs ) : returns the angle’sAppendix cosine between both vec- tors.
         public function cos(Vector $rhs)
         {
             return ((($this->_x * $rhs->_x) + ($this->_y * $rhs->_y) + ($this->_z * $rhs->_z)) / sqrt((($this->_x * $this->_x) + ($this->_y * $this->_y) + ($this->_z * $this->_z)) * (($rhs->_x * $rhs->_x) + ($rhs->_y * $rhs->_y) + ($rhs->_z * $rhs->_z))));
