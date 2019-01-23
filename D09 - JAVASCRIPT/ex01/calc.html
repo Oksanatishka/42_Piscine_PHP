@@ -59,17 +59,17 @@
 				r = document.getElementById("rightMem").value;
 
 				if (isNaN(l) || isNaN(r) || parseInt(l) < 0 || parseInt(r) < 0) {
-					alert("Error :(");
 					console.log("Error :(");
+					alert("Error :(");
 				}
 				else if ((x == '/' || x == '%') && parseInt(r) == 0) {
-					alert("It's over 9000!");
 					console.log("It's over 9000!");
+					alert("It's over 9000!");
 				}
 				else {
 					var res = eval(l + x + r);
-					alert(res);
 					console.log(res);
+					alert(res);
 				}
 			}
 		</script>
